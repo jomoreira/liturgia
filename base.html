@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}Meu Sistema Flask{% endblock %}</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <div class="layout">
+
+        <!-- TOP: Cabeçalho superior -->
+        <header class="top">
+
+            <div class="brand">
+                <div class="brand-icon">F</div>
+
+                <div>
+                    <h1>Flask System</h1>
+                    <span>Sistema de Gestão Web</span>
+                </div>
+            </div>
+
+            <div class="top-actions">
+                <span class="status">
+                    <span class="status-dot"></span>
+                    Sistema Online
+                </span>
+
+                <div class="user">
+                    <div class="avatar">JM</div>
+
+                    <div class="user-info">
+                        <strong>Joilson</strong>
+                        <small>Administrador</small>
+                    </div>
+                </div>
+            </div>
+
+        </header>
+
+
+        <!-- SIDE: Menu lateral -->
+        <aside class="side">
+
+            <div class="menu-title">MENU PRINCIPAL</div>
+
+            <nav class="menu">
+
+                <a href="{{ url_for('index') }}"
+                   class="menu-item active">
+                    <span class="menu-icon">⌂</span>
+                    <span>Início</span>
+                </a>
+
+                <a href="{{ url_for('dashboard') }}"
+                   class="menu-item">
+                    <span class="menu-icon">▦</span>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="#relatorios" class="menu-item">
+                    <span class="menu-icon">▤</span>
+                    <span>Relatórios</span>
+                </a>
+
+                <a href="#usuarios" class="menu-item">
+                    <span class="menu-icon">♙</span>
+                    <span>Usuários</span>
+                </a>
+
+                <a href="{{ url_for('sobre') }}"
+                   class="menu-item">
+                    <span class="menu-icon">ⓘ</span>
+                    <span>Sobre o sistema</span>
+                </a>
+
+            </nav>
+
+            <div class="side-bottom">
+                <div class="system-card">
+                    <div class="system-card-icon">⚙</div>
+
+                    <strong>Ambiente de desenvolvimento</strong>
+
+                    <p>Aplicação executada com Python e Flask.</p>
+                </div>
+            </div>
+
+        </aside>
+
+
+        <!-- CENTER: Conteúdo principal -->
+        <main class="center">
+
+            <div class="page-content">
+                {% block content %}
+
+                <h2>Conteúdo principal</h2>
+
+                <p>O conteúdo da página será exibido aqui.</p>
+
+                {% endblock %}
+            </div>
+
+        </main>
+
+
+        <!-- FOOTER: Rodapé -->
+        <footer class="footer">
+
+            <span>
+                &copy; 2026 Flask System
+            </span>
+
+            <span>
+                Desenvolvido com Python + Flask
+            </span>
+
+            <span class="version">
+                Versão 1.0.0
+            </span>
+
+        </footer>
+
+    </div>
+
+</body>
+</html>
