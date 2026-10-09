@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ titulo | default("Página Inicial") }} - Flask System
+{% endblock %}
+
+{% block content %}
+
+    <div class="page-header">
+
+        <div>
+            <span class="breadcrumb">INÍCIO / PAINEL</span>
+
+            <h2>{{ titulo | default("Visão Geral do Sistema") }}</h2>
+
+            <p>
+                {{ mensagem | default(
+                    "Acompanhe as informações e funcionalidades do sistema."
+                ) }}
+            </p>
+        </div>
+
+        <button class="btn-primary"
+                onclick="alert('Ação de exemplo executada!')">
+            + Nova operação
+        </button>
+
+    </div>
+
+
+    <!-- Indicadores -->
+    <section class="stats">
+
+        <article class="stat-card">
+            <div class="stat-label">Usuários cadastrados</div>
+            <div class="stat-value">1.248</div>
+            <div class="stat-description">Total de registros</div>
+        </article>
+
+        <article class="stat-card">
+            <div class="stat-label">Processos ativos</div>
+            <div class="stat-value">86</div>
+            <div class="stat-description">Em andamento</div>
+        </article>
+
+        <article class="stat-card">
+            <div class="stat-label">Relatórios</div>
+            <div class="stat-value">324</div>
+            <div class="stat-description">Disponíveis no sistema</div>
+        </article>
+
+        <article class="stat-card">
+            <div class="stat-label">Disponibilidade</div>
+            <div class="stat-value">99,9%</div>
+            <div class="stat-description">Indicador ilustrativo</div>
+        </article>
+
+    </section>
+
+
+    <!-- Área de conteúdo -->
+    <section class="content-grid">
+
+        <article class="panel main-panel">
+
+            <div class="panel-header">
+                <div>
+                    <h3>Bem-vindo ao sistema</h3>
+                    <p>Área de trabalho principal</p>
+                </div>
+
+                <span class="badge">Ativo</span>
+            </div>
+
+            <div class="welcome-box">
+                <div class="welcome-icon">F</div>
+
+                <div>
+                    <h3>Aplicação Flask</h3>
+
+                    <p>
+                        Esta é a área central da aplicação.
+                        Você poderá inserir tabelas, gráficos,
+                        formulários, consultas ao banco de dados
+                        e outros componentes.
+                    </p>
+                </div>
+            </div>
+
+            <div class="quick-actions">
+
+                <a href="{{ url_for('dashboard') }}"
+                   class="quick-action">
+                    <span>▦</span>
+                    <strong>Dashboard</strong>
+                    <small>Acessar indicadores</small>
+                </a>
+
+                <a href="#relatorios" class="quick-action">
+                    <span>▤</span>
+                    <strong>Relatórios</strong>
+                    <small>Consultar informações</small>
+                </a>
+
+                <a href="{{ url_for('sobre') }}"
+                   class="quick-action">
+                    <span>ⓘ</span>
+                    <strong>Sobre</strong>
+                    <small>Informações do sistema</small>
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <aside class="panel side-panel">
+
+            <div class="panel-header">
+                <div>
+                    <h3>Informações</h3>
+                    <p>Resumo da aplicação</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <span class="info-label">Framework</span>
+                <strong>Flask</strong>
+            </div>
+
+            <div class="info-item">
+                <span class="info-label">Linguagem</span>
+                <strong>Python</strong>
+            </div>
+
+            <div class="info-item">
+                <span class="info-label">Interface</span>
+                <strong>HTML5 + CSS3</strong>
+            </div>
+
+            <div class="info-item">
+                <span class="info-label">Arquitetura</span>
+                <strong>Templates Jinja2</strong>
+            </div>
+
+        </aside>
+
+    </section>
+
+{% endblock %}
